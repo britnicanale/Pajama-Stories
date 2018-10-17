@@ -13,3 +13,6 @@ Actions that will be taken by our team:
 1.) Do NOT exploit weird or obscure code (maybe copied from StackOverflow) in our code because it might be hard to understand it and may lead to future unforeseen problems.
 2.) Actually USE the dev log to show what changes you have made so that the other programmers know what changes you have made. Not updating the dev log will just lead to confusion.
 3.) Write snowflake code aka use reasonable function and variable names, not ones that do not mean anything in the context of the code like 's', 'd', or 'poop'. This is also mitigated by attempting to divide the work up evenly so that each team member will not feel too pressured to write too much snowflakey code.
+
+jiayangC -- 2018-10-17 13:17
+Added a base template for the website and began making a story page for users who have already contributed
