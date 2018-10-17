@@ -1,2 +1,15 @@
-jabirC -- 2018-10-17 1:58
-Removed "RecentAdditions" table from database schema
+jasonL -- 2018-10-17 5:01
+Summary of our changes to the design document:
+1.) Removed "RecentAdditions" table from the database schema
+2.) Created a "contributions" table for database schema
+3.) Updated the names to snake case for database schema
+4.) Decided on one url "/story" for the stories instead of having two separate ones
+5.) Added more detail to the overview of all components
+6.) Fixed order of priorities in assignment of tasks
+7.) Made it clear that we have user accounts
+
+jasonL -- 2018-10-17 5:12
+Actions that will be taken by our team:
+1.) Do NOT expoit weird or obscure code (maybe copied from StackOverflow) in our code because it might be hard to understand it and may lead to future unforeseen problems.
+2.) Actually USE the dev log to show what changes you have made so that the other programmers know what changes you have made. Not updating the dev log will just lead to confusion.
+3.) Write snowflake code aka use reasonable function and variable names, not ones that do not mean anything in the context of the code like 's', 'd', or 'poop'. This is also mitigated by attempting to divide the work up evenly so that each team member will not feel too pressured to write too much snowflakey code.
