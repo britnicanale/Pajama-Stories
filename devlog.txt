@@ -1,0 +1,2 @@
+jabirC -- 2018-10-17 1:58
+Removed "RecentAdditions" table from database schema
