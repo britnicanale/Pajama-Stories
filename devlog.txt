@@ -57,5 +57,10 @@ Actions that will be taken by our team:
 
 jasonL -- 2018-10-17 13:13
 -------------------------------------------------------------
-I updated the format of this devlog with what TBM sent to the PM in the emails.
+Updated the format of this devlog with what TBM sent to the PM in the emails
+==============================================================
+
+jabirC -- 2018-10-17 13:15
+-------------------------------------------------------------
+Coded basic Login feature
 ==============================================================
