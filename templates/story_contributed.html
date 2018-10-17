@@ -5,7 +5,10 @@
     {# Story goes here #}
     {% for pair in additions %}
         <!-- time to add the blocks and user separately-->
-
-
-
+        <blockquote>
+            {{pair[0]}} {# Body of the addition #}
+        </blockquote>
+        {{pair[1]}} {# Name of the add-er #}
+    {% endfor %}
+    <br>
 {% endblock %}
