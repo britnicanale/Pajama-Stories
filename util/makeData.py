@@ -1,4 +1,5 @@
-DB_FILE="data/bigData.db"
+import sqlite3
+DB_FILE="../data/bigData.db"
 
 db = sqlite3.connect(DB_FILE)
 c = db.cursor()

@@ -1,10 +1,10 @@
 #util commands for messing with the database
 import sqlite3
-DB_FILE ="data/bigData.db"
+DB_FILE ="../data/bigData.db"
 #----------------when you want to add data to the database------------------------------
 #adds to the users table
 def addUser(username,password_hash):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO users (username,password_hash)VALUES(\"{0}\",\"{1}\");".format(username,password_hash)
     c.execute(command)
@@ -13,7 +13,7 @@ def addUser(username,password_hash):
 
 #add a story to the stories table
 def addStory(title):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO stories (title)VALUES(\"{0}\");".format(title)
     c.execute(command)
@@ -21,7 +21,7 @@ def addStory(title):
     db.close()
 #add a contribution to the table
 def addContribution(user_id,story_id,body):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO contributions (user_id,story_id,body)VALUES({0},{1},\"{2}\");".format(user_id,story_id,body)
     c.execute(command)
@@ -30,7 +30,7 @@ def addContribution(user_id,story_id,body):
 #--------------------useful for logins---------------------------
 #returns username password combo in a dict in the format username:password
 def getAllUserData():
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command  = "SELECT username,password_hash FROM users;"
     c.execute(command)
@@ -42,7 +42,7 @@ def getAllUserData():
     return dict
 #returns user id based on username every username is unique so this shouldn't be an issue
 def getUserId(username):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT id FROM users WHERE username = \"{0}\";".format(username)
     c.execute(command)
@@ -53,7 +53,7 @@ def getUserId(username):
 #---------------------useful for determining who contributed to what------------------
 #returns list of tuples of story_ids a user has contributed to
 def getUserContribution(user_id):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT story_id FROM contributions WHERE user_id = {0};".format(user_id)
     c.execute(command)
@@ -64,7 +64,7 @@ def getUserContribution(user_id):
 #--------------useful for displaying stories(and their contributors)----------------------------
 #retrieves every single story id within the db in a tuple list
 def getAllStories():
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT id FROM stories;"
     c.execute(command)
@@ -74,7 +74,7 @@ def getAllStories():
     
 #get the stories title based on story id
 def getTitle(id):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT title FROM stories WHERE id = {0};".format(id)
     c.execute(command)
@@ -84,7 +84,7 @@ def getTitle(id):
 
 #returns a list of tuples of all the contributions of a particular story in the format (user_id,body)
 def getStoryBody(story_id):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT user_id,body FROM contributions WHERE story_id = {0};".format(story_id)
     c.execute(command)
@@ -94,7 +94,7 @@ def getStoryBody(story_id):
 
 #retrieve username based on id
 def getUsername(id):
-    db = sqlite3.connect("data/bigData.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT username FROM users WHERE id = {0};".format(id)
     c.execute(command)
@@ -103,21 +103,17 @@ def getUsername(id):
     return name[0][0]
 
 #testing the functions
-    
-#addUser('peter','pass')
-#addUser('jabir','pass')
+
+addUser('peter','pass')
+addUser('jabir','pass')
 print(getUsername(1))
 print(getUsername(2))
-#addStory('dogs')
-#addContribution(1,1,"i like dogs")
-#addContribution(2,1,"and they're great")
+addStory('dogs')
+addContribution(1,1,"i like dogs")
+addContribution(2,1,"and they're great")
 print(getAllStories())
 print(getTitle(1))
 print(getStoryBody(1))
 print(getUserContribution(1))
 print(getUserContribution(2))
 print(getUserId('peter'))
-
-
-
-    
