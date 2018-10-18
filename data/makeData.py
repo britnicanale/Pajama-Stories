@@ -1,7 +1,7 @@
 #makes db file from scratch for testing purposes
 import sqlite3
 
-DB_FILE="bigData.db"
+DB_FILE="data/bigData.db"
 
 db = sqlite3.connect(DB_FILE)
 c = db.cursor()
