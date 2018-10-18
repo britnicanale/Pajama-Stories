@@ -83,3 +83,9 @@ jasonL -- 2018-10-18 05:08
 Combined the work of everyone so far and updated each of their
 branches to be the same as master. Also, added makefile.
 ==============================================================
+
+jasonL -- 2018-10-18 10:37
+--------------------------------------------------------------
+Moved Peter's makeData.py to the root directory and planned on
+using it in the utils as well but need to discuss with team.
+==============================================================
