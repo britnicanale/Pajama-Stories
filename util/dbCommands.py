@@ -1,6 +1,6 @@
 #util commands for messing with the database
 import sqlite3
-DB_FILE ="../data/bigData.db"
+DB_FILE ="data/bigData.db"
 #----------------when you want to add data to the database------------------------------
 #adds to the users table
 def addUser(username,password_hash):
@@ -104,16 +104,16 @@ def getUsername(id):
 
 #testing the functions
 
-addUser('peter','pass')
-addUser('jabir','pass')
-print(getUsername(1))
-print(getUsername(2))
-addStory('dogs')
-addContribution(1,1,"i like dogs")
-addContribution(2,1,"and they're great")
-print(getAllStories())
-print(getTitle(1))
-print(getStoryBody(1))
-print(getUserContribution(1))
-print(getUserContribution(2))
-print(getUserId('peter'))
+#addUser('peter','pass')
+#addUser('jabir','pass')
+#print(getUsername(1))
+#print(getUsername(2))
+#addStory('dogs')
+#addContribution(1,1,"i like dogs")
+#addContribution(2,1,"and they're great")
+#print(getAllStories())
+#print(getTitle(1))
+#print(getStoryBody(1))
+#print(getUserContribution(1))
+#print(getUserContribution(2))
+#print(getUserId('peter'))
