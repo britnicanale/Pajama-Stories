@@ -44,7 +44,7 @@ def getAllUserData():
 def getUserId(username):
     db = sqlite3.connect("data/bigData.db")
     c = db.cursor()
-    command = "SELECT id FROM users WHERE username = {0};".format(username)
+    command = "SELECT id FROM users WHERE username = \"{0}\";".format(username)
     c.execute(command)
     user_id = c.fetchall()
     db.close()
@@ -102,12 +102,21 @@ def getUsername(id):
     db.close()
     return name[0][0]
 
-
+#testing the functions
     
-    
-    
-    
-    
+#addUser('peter','pass')
+#addUser('jabir','pass')
+print(getUsername(1))
+print(getUsername(2))
+#addStory('dogs')
+#addContribution(1,1,"i like dogs")
+#addContribution(2,1,"and they're great")
+print(getAllStories())
+print(getTitle(1))
+print(getStoryBody(1))
+print(getUserContribution(1))
+print(getUserContribution(2))
+print(getUserId('peter'))
 
 
 
