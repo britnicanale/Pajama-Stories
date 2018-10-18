@@ -89,3 +89,9 @@ jasonL -- 2018-10-18 10:37
 Moved Peter's makeData.py to the root directory and planned on
 using it in the utils as well but need to discuss with team.
 ==============================================================
+
+jasonL -- 2018-10-18 13:15
+--------------------------------------------------------------
+Peter and I worked on figuring out how to use the dbCommands.py from the
+util folder correctly from app.py which is in the root directory.
+==============================================================
