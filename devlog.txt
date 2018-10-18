@@ -35,7 +35,7 @@ fristL -- TIMESTAMP
 <Thing fristL did.>
 ==============================================================
 
-jasonL -- 2018-10-17 5:01
+jasonL -- 2018-10-17 05:01
 --------------------------------------------------------------
 Summary of our changes to the design document:
 1.) Removed "RecentAdditions" table from the database schema
@@ -47,7 +47,7 @@ Summary of our changes to the design document:
 7.) Made it clear that we have user accounts
 ==============================================================
 
-jasonL -- 2018-10-17 5:12
+jasonL -- 2018-10-17 05:12
 -------------------------------------------------------------
 Actions that will be taken by our team:
 1.) Do NOT exploit weird or obscure code (maybe copied from StackOverflow) in our code because it might be hard to understand it and may lead to future unforeseen problems.
@@ -57,7 +57,8 @@ Actions that will be taken by our team:
 
 jasonL -- 2018-10-17 13:13
 -------------------------------------------------------------
-Updated the format of this devlog with what TBM sent to the PM in the emails
+Updated the format of this devlog with what TBM sent to the PM
+in the emails
 ==============================================================
 
 jabirC -- 2018-10-17 13:15
@@ -67,11 +68,18 @@ Coded basic Login feature
 
 jiayangC -- 2018-10-17 13:17
 -------------------------------------------------------------
-Added a base template for the website and began making a story page for users who have already contributed
+Added a base template for the website and began making a story
+page for users who have already contributed
 ==============================================================
 
 peterC -- 2018-10-17 20:15
 --------------------------------------------------------------
 Created a database along with a slew of util functions to
 provide ease of use when interacting with the database
+==============================================================
+
+jasonL -- 2018-10-18 05:08
+--------------------------------------------------------------
+Combined the work of everyone so far and updated each of their
+branches to be the same as master. Also, added makefile.
 ==============================================================
