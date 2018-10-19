@@ -30,13 +30,16 @@ def authenticate():
         if user_data[username_input]  == password_input:
             id = db.getUserId(username_input)
             session["id"] = id
-            return redirect(url_for('login'))
         else:
             flash("Invalid password, try again!")
-            return render_template("login.html")
     else:
         flash("Invalid username, try again!")
-        return render_template("login.html")
+    return redirect(url_for('login'))
+
+@app.route("/logout", methods=["GET"])
+def logOut():
+    session.pop("id")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
