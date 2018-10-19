@@ -95,3 +95,8 @@ jasonL -- 2018-10-18 13:15
 Peter and I worked on figuring out how to use the dbCommands.py from the
 util folder correctly from app.py which is in the root directory.
 ==============================================================
+
+jabirC -- 2018-10-18 10:05
+-------------------------------------------------------------
+Added Logout button in base.html and simplified code in app.py
+==============================================================
