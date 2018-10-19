@@ -106,3 +106,9 @@ jasonL -- 2018-10-19 04:42
 Made homepage display titles of stories that the user has
 contributed to and not contributed to.
 ==============================================================
+
+jasonL -- 2018-10-19 10:23
+-------------------------------------------------------------
+Combined everyone's changes from previous day and added a gitignore
+to ignore the pyc files.
+==============================================================
