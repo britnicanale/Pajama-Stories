@@ -18,7 +18,20 @@ def isLoggedIn():
 @app.route("/") #Linking a function to a route
 def login():
     if(isLoggedIn()):
-        return render_template("story_contributed.html", additions = [("the duck goes woof","dennis"),("the dog goes meow", "jason"), ("the cat goes quack","kenny")])
+        #index to 0th because that is the id
+        contributed_data = db.getUserContribution(session["id"]);
+        list_contr_story_id = []
+        for tuple in contributed_data:
+            list_contr_story_id.append(tuple[0])
+        allStories = db.getAllStories()
+        title_list = []
+        non_title_list = []
+        for story_id in list_contr_story_id:
+            title_list.append(db.getTitle(story_id))
+        for story_id in allStories:
+            if story_id[0] not in list_contr_story_id:
+                non_title_list.append(db.getTitle(story_id[0]))
+        return render_template("homepage.html", titles = title_list, non_titles = non_title_list)
     else:
         return render_template("login.html")
 

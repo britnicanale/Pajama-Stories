@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+
+    <h1>Welcome to Three Dimensional Pajama Stories</h1>
+    <div>
+      <div>
+        <b>Contributed to Stories.</b>
+        {% for title in titles %}
+          <br>
+          {{title}}
+        {% endfor %}
+      </div>
+      <div>
+        <b>New Stories.</b>
+        {% for non_title in non_titles %}
+          <br>
+          {{non_title}}   
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}

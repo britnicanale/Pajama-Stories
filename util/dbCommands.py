@@ -40,6 +40,7 @@ def getAllUserData():
     for item in userInfo:
         dict[item[0]] = item[1]
     return dict
+
 #returns user id based on username every username is unique so this shouldn't be an issue
 def getUserId(username):
     db = sqlite3.connect(DB_FILE)
@@ -49,7 +50,7 @@ def getUserId(username):
     user_id = c.fetchall()
     db.close()
     return user_id[0][0]
-        
+
 #---------------------useful for determining who contributed to what------------------
 #returns list of tuples of story_ids a user has contributed to
 def getUserContribution(user_id):
@@ -71,7 +72,7 @@ def getAllStories():
     ids = c.fetchall()
     db.close()
     return ids
-    
+
 #get the stories title based on story id
 def getTitle(id):
     db = sqlite3.connect(DB_FILE)

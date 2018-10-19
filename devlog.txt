@@ -100,3 +100,9 @@ jabirC -- 2018-10-18 10:05
 -------------------------------------------------------------
 Added Logout button in base.html and simplified code in app.py
 ==============================================================
+
+jasonL -- 2018-10-19 04:42
+-------------------------------------------------------------
+Made homepage display titles of stories that the user has
+contributed to and not contributed to.
+==============================================================
