@@ -10,16 +10,16 @@ Home Page
     <div>
       <div>
         <b>Contributed to Stories.</b>
-        {% for title in titles %}
+        {% for title_tuple in titles %}
           <br>
-          {{title}}
+          <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a>
         {% endfor %}
       </div>
       <div>
         <b>New Stories.</b>
-        {% for non_title in non_titles %}
+        {% for non_title_tuple in non_titles %}
           <br>
-          {{non_title}}   
+          <a href="/story/{{non_title_tuple[1]}}">{{non_title_tuple[0]}}</a>
         {% endfor %}
       </div>
     </div>

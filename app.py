@@ -27,10 +27,14 @@ def login():
         title_list = []
         non_title_list = []
         for story_id in list_contr_story_id:
-            title_list.append(db.getTitle(story_id))
+            title_list.append((db.getTitle(story_id),story_id))
         for story_id in allStories:
-            if story_id[0] not in list_contr_story_id:
-                non_title_list.append(db.getTitle(story_id[0]))
+            cur_id = story_id[0]
+            if cur_id not in list_contr_story_id:
+                non_title_list.append((db.getTitle(cur_id),cur_id))
+
+        print(title_list)
+        print(non_title_list)
         return render_template("homepage.html", titles = title_list, non_titles = non_title_list)
     else:
         return render_template("login.html")
