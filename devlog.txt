@@ -106,3 +106,9 @@ jasonL -- 2018-10-19 04:42
 Made homepage display titles of stories that the user has
 contributed to and not contributed to.
 ==============================================================
+
+jasonL -- 2018-10-19 13:16
+-------------------------------------------------------------
+Added links to jinja on homepage and changed title lists to tuples
+and include story ids.
+==============================================================
