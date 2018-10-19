@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {# Story goes here #}
+        <blockquote>
+            {story_body[-1][1]}
+        </blockquote>
+    <br><br>
+
+    <form action ="/add" method="POST">
+        Add to the story: <br>
+        <input type= "text" name="addition"><br>
+    </form>
+{% endblock %}

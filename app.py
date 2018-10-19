@@ -24,7 +24,7 @@ def login():
         for tuple in contributed_data:
             list_contr_story_id.append(tuple[0])
         allStories = db.getAllStories()
-        title_list = []
+        title_list = [] 
         non_title_list = []
         for story_id in list_contr_story_id:
             title_list.append(db.getTitle(story_id))
@@ -53,6 +53,22 @@ def authenticate():
 def logOut():
     session.pop("id")
     return redirect(url_for("login"))
+
+'''@app.route("/add", methods = ["POST"])
+def add_contribution():'''
+
+@app.route("/story/<int:story_id>")
+def view_story(story_id):
+    if story_id not in [i[0] for i in db.getAllStories()]:
+        return render_template("story_unfound.html")
+    additions = db.getStoryBody(story_id)
+    users = [user[0] for user in additions]
+    if session["id"] in users:
+        return render_template("story_contributed.html", story_body = additions)
+    return render_template("story_uncontributed.html", story_body = additions)
+
+
+
 
 
 if __name__ == "__main__":

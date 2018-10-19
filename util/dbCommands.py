@@ -103,6 +103,7 @@ def getUsername(id):
     db.close()
     return name[0][0]
 
+
 #testing the functions
 
 #addUser('peter','pass')
