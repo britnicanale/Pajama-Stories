@@ -112,3 +112,11 @@ jasonL -- 2018-10-19 10:23
 Combined everyone's changes from previous day and added a gitignore
 to ignore the pyc files.
 ==============================================================
+
+jiayangC -- 2018-10-19 13:15
+-------------------------------------------------------------
+Added a page to view contributed stories
+Added a page to view uncontributed stories
+Added a page to view unfound story
+
+==============================================================
