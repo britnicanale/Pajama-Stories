@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>  </title>
+  </head>
+  <body>
+        {% set msgs = get_flashed_messages() %}
+        {% for each in msgs %}
+             {{each}}
+               <br>
+        {% endfor %}
+      <form action ="/auth" method="POST" >
+          Username <input type= "text" name="username"><br>
+          Password <input type= "password" name="password"><br>
+          <input type="submit" name="logI" value="login">
+      </form>
+  </body>
+</html>
