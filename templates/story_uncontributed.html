@@ -7,8 +7,10 @@
         </blockquote>
     <br><br>
 
-    <form action ="/add" method="POST">
+    <form action ="/story/{{story_id}}/add" method="POST">
         Add to the story: <br>
         <input type= "text" name="addition"><br>
+        <button type="submit"> Add </button>
+        <br>
     </form>
 {% endblock %}
