@@ -3,10 +3,11 @@
 #P00 -- Da Art of Storytellin'
 #2018-10-17
 
-from flask import Flask,render_template,request,session,url_for,redirect,flash
+from flask import Flask, render_template, request, session, url_for, redirect, flash
 from util import dbCommands as db
 import os
 import sqlite3
+
 app = Flask(__name__) # instantiates an instance of Flask
 
 app.secret_key = os.urandom(32)
@@ -56,6 +57,9 @@ def logout():
 
 @app.route("/story/<int:story_id>")
 def view_story(story_id):
+    if not is_logged_in():
+        return redirect(url_for("login"))
+
     if story_id not in [i[0] for i in db.get_all_stories()]:
         return render_template("story_unfound.html")
     additions = db.get_story_body(story_id)
@@ -66,6 +70,9 @@ def view_story(story_id):
 
 @app.route("/story/<int:story_id>/add", methods = ["POST"])
 def add_contribution(story_id):
+    if not is_logged_in():
+        return redirect(url_for("login"))
+        
     db.add_contribution(session["id"], story_id, request.form.get("addition"))
     flash("Successfully added to the story!")
     return redirect(url_for("view_story", story_id = story_id))
