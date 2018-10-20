@@ -62,15 +62,13 @@ def view_story(story_id):
     users = [user[0] for user in additions]
     if session["id"] in users:
         return render_template("story_contributed.html", story_id = story_id, story_body = additions)
-    print("hi")
     return render_template("story_uncontributed.html", story_id = story_id, story_body = additions)
 
 @app.route("/story/<int:story_id>/add", methods = ["POST"])
 def add_contribution(story_id):
-    print("yaes")
     db.add_contribution(session["id"], story_id, request.form.get("addition"))
     flash("Successfully added to the story!")
-    return redirect(url_for("view_story"))
+    return redirect(url_for("view_story", story_id = story_id))
 
 
 
