@@ -5,7 +5,7 @@
 
 from flask import Flask, render_template, request, session, url_for, redirect, flash
 from util import dbCommands as db
-import os,sys
+import os
 import sqlite3
 
 app = Flask(__name__) # instantiates an instance of Flask
@@ -22,7 +22,6 @@ def login():
         contributed_data = db.get_user_contribution(session["id"]);
         list_contr_story_id = [x[0] for x in contributed_data] # x[0] is the story id
         allStories = db.get_all_stories() # List of all the stories (id)
-        print(list_contr_story_id, file=sys.stderr)
         contr_title_list = [db.get_title(str(story_id)) for story_id in list_contr_story_id] # List of all contributed-to story titles
         uncontr_title_list = [db.get_title(str(story_id[0])) for story_id in allStories if story_id not in list_contr_story_id] # List of all uncontributed-to story titles
         return render_template("homepage.html", titles = contr_title_list, non_titles = uncontr_title_list)
