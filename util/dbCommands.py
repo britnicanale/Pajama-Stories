@@ -3,7 +3,7 @@ import sqlite3
 DB_FILE ="data/bigData.db"
 #----------------when you want to add data to the database------------------------------
 #adds to the users table
-def addUser(username,password_hash):
+def add_user(username,password_hash):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO users (username,password_hash)VALUES(\"{0}\",\"{1}\");".format(username,password_hash)
@@ -12,7 +12,7 @@ def addUser(username,password_hash):
     db.close()
 
 #add a story to the stories table
-def addStory(title):
+def add_story(title):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO stories (title)VALUES(\"{0}\");".format(title)
@@ -20,7 +20,7 @@ def addStory(title):
     db.commit()
     db.close()
 #add a contribution to the table
-def addContribution(user_id,story_id,body):
+def add_contribution(user_id,story_id,body):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO contributions (user_id,story_id,body)VALUES({0},{1},\"{2}\");".format(user_id,story_id,body)
@@ -29,7 +29,7 @@ def addContribution(user_id,story_id,body):
     db.close()
 #--------------------useful for logins---------------------------
 #returns username password combo in a dict in the format username:password
-def getAllUserData():
+def get_all_user_data():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command  = "SELECT username,password_hash FROM users;"
@@ -42,7 +42,7 @@ def getAllUserData():
     return dict
 
 #returns user id based on username every username is unique so this shouldn't be an issue
-def getUserId(username):
+def get_user_id(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT id FROM users WHERE username = \"{0}\";".format(username)
@@ -53,7 +53,7 @@ def getUserId(username):
 
 #---------------------useful for determining who contributed to what------------------
 #returns list of tuples of story_ids a user has contributed to
-def getUserContribution(user_id):
+def get_user_contribution(user_id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT story_id FROM contributions WHERE user_id = {0};".format(user_id)
@@ -64,7 +64,7 @@ def getUserContribution(user_id):
 
 #--------------useful for displaying stories(and their contributors)----------------------------
 #retrieves every single story id within the db in a tuple list
-def getAllStories():
+def get_all_stories():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT id FROM stories;"
@@ -74,7 +74,7 @@ def getAllStories():
     return ids
 
 #get the stories title based on story id
-def getTitle(id):
+def get_title(id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT title FROM stories WHERE id = {0};".format(id)
@@ -84,7 +84,7 @@ def getTitle(id):
     return title[0][0]
 
 #returns a list of tuples of all the contributions of a particular story in the format (user_id,body)
-def getStoryBody(story_id):
+def get_story_body(story_id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT user_id,body FROM contributions WHERE story_id = {0};".format(story_id)
@@ -94,7 +94,7 @@ def getStoryBody(story_id):
     return storyBody
 
 #retrieve username based on id
-def getUsername(id):
+def get_username(id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT username FROM users WHERE id = {0};".format(id)
