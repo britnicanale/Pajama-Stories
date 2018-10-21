@@ -137,3 +137,11 @@ Added register button in login.html
 created basic signup page
 
 ==============================================================
+
+
+jabirC -- 2018-10-20 23:50
+-------------------------------------------------------------
+Added flash messages for various signup errors
+added password hashing 
+
+==============================================================
