@@ -5,9 +5,9 @@
 
 from flask import Flask, render_template, request, session, url_for, redirect, flash
 from util import dbCommands as db
+from passlib.hash import md5_crypt
 import os
 import sqlite3
-import passlib
 
 app = Flask(__name__) # instantiates an instance of Flask
 
@@ -48,6 +48,10 @@ def authenticate():
 def logout():
     session.pop("id")
     return redirect(url_for("login"))
+
+@app.route("/register" , methods = ["POST"])
+def register():
+    return render_template("register.html")
 
 @app.route("/story/<int:story_id>")
 def view_story(story_id):
