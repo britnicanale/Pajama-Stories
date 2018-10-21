@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, session, url_for, redirect, f
 from util import dbCommands as db
 import os
 import sqlite3
+import passlib
 
 app = Flask(__name__) # instantiates an instance of Flask
 
