@@ -106,8 +106,8 @@ def get_username(id):
 
 #testing the functions
 
-#addUser('peter','pass')
-#addUser('jabir','pass')
+#addUser('peter','pass') <- DONT RUN THIS, will ruin hash check ~ jabir
+#addUser('jabir','pass') <- DONT RUN THIS, will ruin hash check ~ jabir
 #print(getUsername(1))
 #print(getUsername(2))
 #addStory('dogs')
