@@ -31,11 +31,12 @@ def login():
 
 @app.route("/auth" , methods = ["POST"])
 def authenticate():
+    user_data = db.get_all_user_data()
     username_input = request.form.get("username")
     password_input = request.form.get("password")
     #Checks if user/pass is valid if not flash reasons why
     if username_input in user_data:
-        if user_data[username_input]  == password_input:
+        if md5_crypt.verify(password_input, user_data[username_input]):
             id = db.get_user_id(username_input)
             session["id"] = id
         else:
@@ -49,9 +50,26 @@ def logout():
     session.pop("id")
     return redirect(url_for("login"))
 
-@app.route("/register" , methods = ["POST"])
+@app.route("/register" , methods = ["GET"])
 def register():
     return render_template("register.html")
+
+@app.route("/registerAuth", methods = ["POST"])
+def reg_auth():
+    username_input = request.form.get("username")
+    password_input = request.form.get("password")
+    password_input2 = request.form.get("password2")
+    if username_input in user_data:
+        flash("Username already exists! Please pick another one!")
+        return redirect(url_for("register"))
+    elif password_input != password_input2:
+        flash("Input Same Password in Both Fields!")
+        return redirect(url_for("register"))
+    else:
+        db.add_user(username_input, md5_crypt.encrypt(password_input))
+        flash("Successfully Registered, Now Sign In!")
+        return redirect(url_for('login'))
+
 
 @app.route("/story/<int:story_id>")
 def view_story(story_id):

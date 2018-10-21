@@ -5,10 +5,15 @@
     <h1>Registration Form</h1>
   </head>
   <body>
+    {% set msgs = get_flashed_messages() %}
+    {% for each in msgs %}
+           {{each}}
+           <br>
+    {% endfor %}
     <form action ="/registerAuth" method="POST" >
         <h2>Username <input type= "text" name="username"><br>
         Password <input type= "password" name="password"><br>
-        Enter Password Again <input type= "password" name="password1"><br>
+        Enter Password Again <input type= "password" name="password2"><br>
         <input type="submit" name="signup" value="Sign Up"></h2>
     </form>
   </body>
