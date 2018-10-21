@@ -31,11 +31,12 @@ def login():
 
 @app.route("/auth" , methods = ["POST"])
 def authenticate():
-    user_data = db.get_all_user_data()
+    user_data = db.get_all_user_data() #for updating user_data when there is a new user
     username_input = request.form.get("username")
     password_input = request.form.get("password")
     #Checks if user/pass is valid if not flash reasons why
     if username_input in user_data:
+        #verifies the hashed password with given password
         if md5_crypt.verify(password_input, user_data[username_input]):
             id = db.get_user_id(username_input)
             session["id"] = id
@@ -59,13 +60,17 @@ def reg_auth():
     username_input = request.form.get("username")
     password_input = request.form.get("password")
     password_input2 = request.form.get("password2")
+    #checks if there is an user with the same username
     if username_input in user_data:
         flash("Username already exists! Please pick another one!")
         return redirect(url_for("register"))
+    #checks if the user typed the same passward twice
     elif password_input != password_input2:
         flash("Input Same Password in Both Fields!")
         return redirect(url_for("register"))
     else:
+        #adds the user's username and a hashed + salted
+        #version of his password to database
         db.add_user(username_input, md5_crypt.encrypt(password_input))
         flash("Successfully Registered, Now Sign In!")
         return redirect(url_for('login'))
