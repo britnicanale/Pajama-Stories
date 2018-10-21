@@ -130,3 +130,10 @@ Added forced login
 Fixed users not being able to view entire story after contributing
 
 ==============================================================
+
+jabirC -- 2018-10-20 22:59
+-------------------------------------------------------------
+Added register button in login.html
+created basic signup page
+
+==============================================================
