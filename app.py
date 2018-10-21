@@ -65,6 +65,9 @@ def reg_auth():
         flash("Username already exists! Please pick another one!")
         return redirect(url_for("register"))
     #checks if the user typed the same passward twice
+    elif len(username_input) < 4:
+        flash("Username has to be atleast 4 characters!")
+        return redirect(url_for("register"))
     elif password_input != password_input2:
         flash("Input Same Password in Both Fields!")
         return redirect(url_for("register"))
