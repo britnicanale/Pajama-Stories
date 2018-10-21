@@ -125,7 +125,7 @@ jiayangC -- 2018-10-20 18:08
 -------------------------------------------------------------
 Added basic user additions to stories
 Reformatted functions & names (snake case)
-Used list generators to clean up messy for-loops
+Used list comprehensions to clean up messy for-loops
 Added forced login
 Fixed users not being able to view entire story after contributing
 
