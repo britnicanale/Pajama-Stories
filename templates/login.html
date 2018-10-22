@@ -1,22 +1,24 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-  <head>
-    <title>  </title>
-  </head>
-  <body>
-        {% set msgs = get_flashed_messages() %}
-        {% for each in msgs %}
-               {{each}}
-               <br>
-        {% endfor %}
-      <form action ="/auth" method="POST" >
-        <h2> Username <input type= "text" name="username"><br>
-          Password <input type= "password" name="password"><br>
-          <input type="submit" name="logI" value="login"></h2>
-      </form>
-      <form action ="/register" method="GET" >
-          <input type="submit" name="signup" value="Sign Up">
-      </form>
-  </body>
-</html>
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block header %}
+<h1>Three-Dimensional Pajama Stories</h1>
+<h2>Login</h2>
+{% endblock %}
+
+{% block content %}
+  {% set msgs = get_flashed_messages() %}
+  {% for each in msgs %}
+         {{each}}
+         <br>
+  {% endfor %}
+  <form action ="/auth" method="POST" >
+  <h4> Username <input type= "text" name="username"><br><br>
+    Password <input type= "password" name="password"><br><br>
+    <input type="submit" name="logI" value="Login"></h4>
+  </form>
+  Don't have an account? <a href="/register">Click here to register!</a>
+{% endblock %}

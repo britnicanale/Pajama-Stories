@@ -138,10 +138,19 @@ created basic signup page
 
 ==============================================================
 
-
 jabirC -- 2018-10-20 23:50
 -------------------------------------------------------------
 Added flash messages for various signup errors
-added password hashing 
+added password hashing
+
+==============================================================
+
+jasonL -- 2018-10-22 05:40
+-------------------------------------------------------------
+Added a way to create stories.
+Display the name of users who contributed to story.
+Made homepage button.
+Made links to go to each story.
+Created a way to clear database and start from scratch.
 
 ==============================================================

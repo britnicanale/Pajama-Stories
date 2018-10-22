@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+Contirbuted
+{% endblock %}
+
 {% block content %}
     {% for msg in get_flashed_messages() %}
     {{msg}}
@@ -10,7 +14,7 @@
         <blockquote>
             {{pair[1]}} {# Body of the addition #}
         </blockquote>
-        {{pair[0]}} {# Name of the add-er #}
+        - {{pair[0]}} {# Name of the add-er #}<br>
     {% endfor %}
     <br>
 {% endblock %}

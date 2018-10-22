@@ -23,9 +23,9 @@ def login():
         contributed_data = db.get_user_contribution(session["id"]);
         list_contr_story_id = [x[0] for x in contributed_data] # x[0] is the story id
         allStories = db.get_all_stories() # List of all the stories (id)
-        contr_title_list = [db.get_title(str(story_id)) for story_id in list_contr_story_id] # List of all contributed-to story titles
-        uncontr_title_list = [db.get_title(str(story_id[0])) for story_id in allStories if story_id not in list_contr_story_id] # List of all uncontributed-to story titles
-        return render_template("homepage.html", titles = contr_title_list, non_titles = uncontr_title_list)
+        contr_title_list = [(db.get_title(str(story_id)),story_id) for story_id in list_contr_story_id] # List of all contributed-to story titles
+        uncontr_title_list = [(db.get_title(str(story_id[0])),story_id[0]) for story_id in allStories if story_id[0] not in list_contr_story_id] # List of all uncontributed-to story titles
+        return render_template("homepage.html", titles = contr_title_list, non_titles = uncontr_title_list, user=db.get_username(session["id"]))
     else:
         return render_template("login.html")
 
@@ -51,7 +51,7 @@ def logout():
     session.pop("id")
     return redirect(url_for("login"))
 
-@app.route("/register" , methods = ["GET"])
+@app.route("/register")
 def register():
     return render_template("register.html")
 
@@ -87,10 +87,11 @@ def view_story(story_id):
     if story_id not in [i[0] for i in db.get_all_stories()]:
         return render_template("story_unfound.html")
     additions = db.get_story_body(story_id) #List of all user additions to specific story
+    contribution_list = [(db.get_username(contr_tuple[0]),contr_tuple[1]) for contr_tuple in additions]
     users = [user[0] for user in additions] #List of all users who made the additions
     if session["id"] in users:
-        return render_template("story_contributed.html", story_id = story_id, story_body = additions)
-    return render_template("story_uncontributed.html", story_id = story_id, story_body = additions)
+        return render_template("story_contributed.html", story_id = story_id, story_body = contribution_list, user=db.get_username(session["id"]))
+    return render_template("story_uncontributed.html", story_id = story_id, story_body = contribution_list, user=db.get_username(session["id"]))
 
 @app.route("/story/<int:story_id>/add", methods = ["POST"])
 def add_contribution(story_id):
@@ -101,6 +102,16 @@ def add_contribution(story_id):
     flash("Successfully added to the story!")
     return redirect(url_for("view_story", story_id = story_id))
 
+@app.route("/create")
+def create_story():
+    return render_template("create_story.html", user=db.get_username(session["id"]))
+
+@app.route("/creating", methods = ["POST"])
+def creating_story():
+    db.add_story(request.form.get("title"))
+    new_story_id = db.get_all_stories()[-1][0]
+    db.add_contribution(session["id"],new_story_id,request.form.get("body"))
+    return redirect(url_for("view_story", story_id = new_story_id))
 
 
 if __name__ == "__main__":

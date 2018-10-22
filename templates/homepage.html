@@ -5,21 +5,17 @@ Home Page
 {% endblock %}
 
 {% block content %}
-
-    <h1>Welcome to Three Dimensional Pajama Stories</h1>
     <div>
       <div>
-        <b>Contributed to Stories.</b>
-        {% for title in titles %}
-          <br>
-          {{title}}
+        <h2>Contributed To Stories.</h2>
+        {% for title_tuple in titles %}
+          <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a><br>
         {% endfor %}
       </div>
       <div>
-        <b>New Stories.</b>
-        {% for non_title in non_titles %}
-          <br>
-          {{non_title}}   
+        <h2>New Stories or <a href="/create">create a new one.</a></h2>
+        {% for non_title_tuple in non_titles %}
+          <a href="/story/{{non_title_tuple[1]}}">{{non_title_tuple[0]}}</a><br>
         {% endfor %}
       </div>
     </div>

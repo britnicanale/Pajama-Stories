@@ -1,7 +1,6 @@
 import sqlite3
-DB_FILE="../data/bigData.db"
 
-db = sqlite3.connect(DB_FILE)
+db = sqlite3.connect("data/bigData.db")
 c = db.cursor()
 #create users
 command = "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT UNIQUE,password_hash TEXT)"
