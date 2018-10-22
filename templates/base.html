@@ -11,10 +11,10 @@
         <h1>Three-Dimensional Pajama Stories</h1>
         Logged in as {{user}}.<br><br>
         <form action ="/">
-        <input type="submit" name="logout" value="Home Page"> <br><br>
+        <input type="submit" value="Home Page"> <br><br>
         </form>
-        <form action ="/logout" method="GET">
-        <input type="submit" name="logout" value="Log Out">
+        <form action ="/logout">
+        <input type="submit" value="Log Out">
         </form>
       {% endblock %}
       {% block content %}

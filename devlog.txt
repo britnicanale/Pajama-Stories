@@ -154,3 +154,11 @@ Made links to go to each story.
 Created a way to clear database and start from scratch.
 
 ==============================================================
+
+jiayangC -- 2018-10-22 13:14
+-------------------------------------------------------------
+Force login for new pages - Limited user access to unallowed pages
+Max/Min characters when making contributions
+Disallowing stories w/ no titles 
+
+==============================================================

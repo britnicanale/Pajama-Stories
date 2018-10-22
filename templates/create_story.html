@@ -3,8 +3,8 @@
 {% block content %}
   <h2> Create your story here! </h2>
     <form action ="/creating" method="POST">
-        Title: <input type= "text" name="title"><br>
-        First Contribution: <input type= "text" name="body"><br>
+        Title: <input type= "text" name="title" minlength="1"><br>
+        First Contribution: <br><textarea name="body" rows="4" cols="50" minlength="10" maxlength="600"> </textarea> <br>
         <button type="submit"> Create Story!</button>
         <br>
     </form>
