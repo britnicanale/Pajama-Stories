@@ -125,6 +125,8 @@ def add_contribution(story_id):
 
 @app.route("/create")
 def create_story():
+    '''Displays the form for creating a new story by letting the user make a title
+    and the first contribution to that story.'''
     if not is_logged_in():
         return redirect(url_for("home"))
 
@@ -132,6 +134,10 @@ def create_story():
 
 @app.route("/creating", methods = ["POST","GET"])
 def creating_story():
+    '''Takes in the input from the create_story.html form and checks if the inputs
+    are the correct length. If they aren't then it will flash a message and redirect
+    the user back to the creating article page. If it is all correct, then it will
+    create the story and redirect the user to the page for viewing the story.'''
     if not is_logged_in():
         return redirect(url_for("home"))
 
