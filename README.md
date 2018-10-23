@@ -2,6 +2,7 @@
 
 ## Requirements
 * Python 3 <br>
+* SQLite3
 
 ## Virtual Environment
 To install a virtual environment in your computer, first make sure that you have Python 3 installed. If you do not have it installed, [go here to learn how to install Python 3](https://realpython.com/installing-python/).
