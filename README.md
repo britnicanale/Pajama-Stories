@@ -1,8 +1,8 @@
 # Storytelling-Softdev
 
 ## Requirements
-*Python3
-*Virtual Environment
+Python3
+Virtual Environment
 
 Go ahead and get Flask
 ```
@@ -17,7 +17,7 @@ $pip install passlib
 Activate your virtual environment 
 (replace **placeholder** with the name of the folder containing your virual environment)
 ```
-$source **placeholder**/bin/activate
+$source placeholder/bin/activate
 ```
 From where you save app.py
 ```
