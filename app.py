@@ -63,15 +63,21 @@ def authenticate():
 
 @app.route("/logout", methods=["GET"])
 def logout():
+    '''Deletes the current session and redirects back to login page.'''
     session.pop("id")
     return redirect(url_for("home"))
 
 @app.route("/register")
 def register():
+    "Displays the page for registering for a new account."
     return render_template("register.html")
 
 @app.route("/registerAuth", methods = ["POST"])
 def reg_auth():
+    '''Checks if the username that the user registers with is at least
+    four characters long and that the passwords that they entered twice
+    are the same. If they aren't correct, then tell them to try again.
+    If they are correct, create the account and redirect to the login.'''
     username_input = request.form.get("username")
     password_input = request.form.get("password")
     password_input2 = request.form.get("password2")
