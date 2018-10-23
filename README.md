@@ -35,7 +35,8 @@ $python app.py
 ```
 Go to localhost:5000 in your favorite web browser to view the website
 
-When you are done, deactivate your virtual environment
+### When you are done 
+deactivate your virtual environment
 ```
 $deactivate
 ```
