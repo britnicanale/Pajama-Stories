@@ -4,6 +4,7 @@ DB_FILE ="data/bigData.db"
 #----------------when you want to add data to the database------------------------------
 #adds to the users table
 def add_user(username,password_hash):
+    '''adds users to use table'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO users (username,password_hash)VALUES(\"{0}\",\"{1}\");".format(username,password_hash)
@@ -13,6 +14,7 @@ def add_user(username,password_hash):
 
 #add a story to the stories table
 def add_story(title):
+    '''adds a story to stories table'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO stories (title)VALUES(\"{0}\");".format(title)
@@ -21,6 +23,7 @@ def add_story(title):
     db.close()
 #add a contribution to the table
 def add_contribution(user_id,story_id,body):
+    '''adds a contribution to the contributions table'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "INSERT INTO contributions (user_id,story_id,body)VALUES({0},{1},\"{2}\");".format(user_id,story_id,body)
@@ -30,6 +33,7 @@ def add_contribution(user_id,story_id,body):
 #--------------------useful for logins---------------------------
 #returns username password combo in a dict in the format username:password
 def get_all_user_data():
+    '''gets all user data into a dict'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command  = "SELECT username,password_hash FROM users;"
@@ -43,6 +47,7 @@ def get_all_user_data():
 
 #returns user id based on username every username is unique so this shouldn't be an issue
 def get_user_id(username):
+    '''gets user id based on username'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT id FROM users WHERE username = \"{0}\";".format(username)
@@ -54,6 +59,7 @@ def get_user_id(username):
 #---------------------useful for determining who contributed to what------------------
 #returns list of tuples of story_ids a user has contributed to
 def get_user_contribution(user_id):
+    '''gets all of a certain users contributions'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT story_id FROM contributions WHERE user_id = {0};".format(user_id)
@@ -65,6 +71,7 @@ def get_user_contribution(user_id):
 #--------------useful for displaying stories(and their contributors)----------------------------
 #retrieves every single story id within the db in a tuple list
 def get_all_stories():
+    '''retrieves every single story id within the story table'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT id FROM stories;"
@@ -75,6 +82,7 @@ def get_all_stories():
 
 #get the stories title based on story id
 def get_title(id):
+    '''retrieves title based on id given'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT title FROM stories WHERE id = {0};".format(id)
@@ -85,6 +93,7 @@ def get_title(id):
 
 #returns a list of tuples of all the contributions of a particular story in the format (user_id,body)
 def get_story_body(story_id):
+    '''retrives all contributions for a particular story'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT user_id,body FROM contributions WHERE story_id = {0};".format(story_id)
@@ -95,6 +104,7 @@ def get_story_body(story_id):
 
 #retrieve username based on id
 def get_username(id):
+    '''get username based on id'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT username FROM users WHERE id = {0};".format(id)
@@ -104,6 +114,7 @@ def get_username(id):
     return name[0][0]
 
 def search_stories(user_query):
+    '''searches for stories based on a query'''
     searching_for = user_query.lower().split()
     story_ids = get_all_stories()
     story_ids_list = []
@@ -118,19 +129,3 @@ def search_stories(user_query):
     matched_id = list(set(matched_id))
     return matched_id
 
-
-#testing the functions
-
-#addUser('peter','pass') <- DONT RUN THIS, will ruin hash check ~ jabir
-#addUser('jabir','pass') <- DONT RUN THIS, will ruin hash check ~ jabir
-#print(getUsername(1))
-#print(getUsername(2))
-#addStory('dogs')
-#addContribution(1,1,"i like dogs")
-#addContribution(2,1,"and they're great")
-#print(getAllStories())
-# print(getTitle(1))
-# print(getStoryBody(1))
-# print(get_user_contribution(1))
-# print(get_user_contribution(2))
-# print(getUserId('peter'))
