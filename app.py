@@ -3,11 +3,13 @@
 #P00 -- Da Art of Storytellin'
 #2018-10-17
 
-from flask import Flask, render_template, request, session, url_for, redirect, flash
-from util import dbCommands as db
-from passlib.hash import md5_crypt
 import os
 import sqlite3
+
+from flask import Flask, render_template, request, session, url_for, redirect, flash
+from passlib.hash import md5_crypt
+
+from util import dbCommands as db
 
 app = Flask(__name__) # instantiates an instance of Flask
 
@@ -15,10 +17,15 @@ app.secret_key = os.urandom(32)
 user_data = db.get_all_user_data()
 
 def is_logged_in():
+    '''This checks if the user is logged in.'''
     return "id" in session
 
 @app.route("/") #Root
 def home():
+    '''If the user is not logged in, it redirects to the login page
+    If the user is logged in, it will display a list of the stories that
+    the user has contributed to and a list of the stories that the user can
+    add to. It also allows the user to create a new story. '''
     if(is_logged_in()):
         contributed_data = db.get_user_contribution(session["id"]);
         list_contr_story_id = [x[0] for x in contributed_data] # x[0] is the story id
@@ -31,10 +38,14 @@ def home():
 
 @app.route("/login")
 def login():
+    '''Displays the login page and links to a page to register for a new account.'''
     return render_template("login.html")
 
 @app.route("/auth" , methods = ["POST"])
 def authenticate():
+    '''Authenticates the username and password that the user has entered in the
+    login page. If either one of them is wrong, then it tells them to try again.
+    If they are correct, then it creates a session and redirects them to the homepage.'''
     user_data = db.get_all_user_data() #for updating user_data when there is a new user
     username_input = request.form.get("username")
     password_input = request.form.get("password")
