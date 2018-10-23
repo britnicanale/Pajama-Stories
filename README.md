@@ -34,11 +34,11 @@ $ pip install passlib
 ## Cloning Our Repository
 To get our website, clone it.
 ```
-$ git clone https://github.com/JasonLin43212/Storytelling-Softdev.git
+$ git clone https://github.com/JasonLin43212/Pajama-Stories.git
 ```
 And then go into the repository
 ```
-$ cd Storytelling-Softdev/
+$ cd Pajama-Stories/
 ```
 ## Run the program
 Once you are inside of our repository, you can run our website
