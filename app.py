@@ -123,6 +123,18 @@ def creating_story():
     db.add_contribution(session["id"],new_story_id,request.form.get("body"))
     return redirect(url_for("view_story", story_id = new_story_id))
 
+@app.route("/search", methods = ["GET"])
+def search_results():
+    if not is_logged_in():
+        return redirect(url_for("home"))
+    query_input = request.args.get("query")
+    query_results = db.search_stories(query_input)
+    list_story = []
+    for id in query_results:
+        list_story.append((db.get_title(id), id))
+    if len(query_results) == 0: flash("No Stories Found")
+    return render_template("search.html", titles = list_story , user=db.get_username(session["id"]))
+
 
 if __name__ == "__main__":
     app.debug = True

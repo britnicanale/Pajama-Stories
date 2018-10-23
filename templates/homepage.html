@@ -6,8 +6,15 @@ Home Page
 
 {% block content %}
     <div>
+      <br>
       <div>
-        <h2>Contributed To Stories.</h2>
+        <form action ="/search" methods = ["GET"]>
+        <input type="text" name="query" placeholder="Search For Stories">
+        <button type="submit"> Search </button>
+        </form>
+      </div>
+      <div>
+        <h2>You Have Contributed To :</h2>
         {% for title_tuple in titles %}
           <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a><br>
         {% endfor %}

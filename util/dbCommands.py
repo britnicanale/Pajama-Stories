@@ -103,6 +103,21 @@ def get_username(id):
     db.close()
     return name[0][0]
 
+def search_stories(user_query):
+    searching_for = user_query.lower().split()
+    story_ids = get_all_stories()
+    story_ids_list = []
+    for tup in story_ids:
+        story_ids_list.append(tup[0])
+    matched_id = []
+    for id in story_ids_list:
+        for word in searching_for:
+            if word in get_title(id).lower():
+                matched_id.append(id)
+    matched_id = [x for x in matched_id if matched_id.count(x) == len(searching_for)]
+    matched_id = list(set(matched_id))
+    return matched_id
+
 
 #testing the functions
 
@@ -114,8 +129,8 @@ def get_username(id):
 #addContribution(1,1,"i like dogs")
 #addContribution(2,1,"and they're great")
 #print(getAllStories())
-#print(getTitle(1))
-#print(getStoryBody(1))
-#print(getUserContribution(1))
-#print(getUserContribution(2))
-#print(getUserId('peter'))
+# print(getTitle(1))
+# print(getStoryBody(1))
+# print(get_user_contribution(1))
+# print(get_user_contribution(2))
+# print(getUserId('peter'))
