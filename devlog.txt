@@ -159,7 +159,7 @@ jiayangC -- 2018-10-22 13:14
 -------------------------------------------------------------
 Force login for new pages - Limited user access to unallowed pages
 Max/Min characters when making contributions
-Disallowing stories w/ no titles 
+Disallowing stories w/ no titles
 
 ==============================================================
 
@@ -168,5 +168,13 @@ jabirC -- 2018-10-22 23:13
 Added a search bar in homepage
 Added a search_stories util function
 Created a search.html page which displays search results
+
+==============================================================
+
+jasonL -- 2018-10-23 05:32
+-------------------------------------------------------------
+Added how to install virtual environment into README.md
+Changed spacing
+Discovered that we still can't prevent empty additions.
 
 ==============================================================
