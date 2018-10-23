@@ -102,6 +102,7 @@ def reg_auth():
 
 @app.route("/story/<int:story_id>")
 def view_story(story_id):
+    '''Shows the story to the user. If the user has not contributed, they receive a restricted view of the story.'''
     if not is_logged_in():
         return redirect(url_for("home"))
     #If story is not in the list of all stories
@@ -116,6 +117,7 @@ def view_story(story_id):
 
 @app.route("/story/<int:story_id>/add", methods = ["POST"])
 def add_contribution(story_id):
+    '''Intermediate function to add the story contribution to the big database. Once added, redirect the user to original story'''
     if not is_logged_in():
         return redirect(url_for("home"))
 

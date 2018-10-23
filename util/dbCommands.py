@@ -106,9 +106,7 @@ def get_username(id):
 def search_stories(user_query):
     searching_for = user_query.lower().split()
     story_ids = get_all_stories()
-    story_ids_list = []
-    for tup in story_ids:
-        story_ids_list.append(tup[0])
+    story_ids_list = [ids[0] for ids in story_ids]
     matched_id = []
     for id in story_ids_list:
         for word in searching_for:
