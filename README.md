@@ -23,7 +23,7 @@ From where you save app.py
 ```
 $python app.py
 ```
-And you're done, just go to localhost:5000 in your favorite web browser
+Go to localhost:5000 in your favorite web browser to view the website
 
 When you are done, deactivate your virtual environment
 ```
