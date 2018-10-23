@@ -1,5 +1,13 @@
 # Pajama Stories
 
+## Contributors
+Team Name: PJCubed
+### Roster
+* Jiayang Chen
+* Jabir Chowdhury
+* Peter Cwalina
+* Jason Lin
+
 ## Requirements
 * Python 3 <br>
 * SQLite3
