@@ -2,8 +2,13 @@
 
 {% block content %}
   <h2> Create your story here! </h2>
+    {% for msg in get_flashed_messages() %}
+    {{msg}}
+    <br><br>
+    {% endfor %}
     <form action ="/creating" method="POST">
         Title: <input type= "text" name="title" minlength="1"><br>
+        <br>
         First Contribution: <br><textarea name="body" rows="4" cols="50" minlength="10" maxlength="600"> </textarea> <br>
         <button type="submit"> Create Story!</button>
         <br>

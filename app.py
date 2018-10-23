@@ -136,10 +136,17 @@ def create_story():
 def creating_story():
     if not is_logged_in():
         return redirect(url_for("home"))
-
-    db.add_story(request.form.get("title"))
+    body = request.form.get("body")
+    title = request.form.get("title")
+    if len(body) < 1 or len(body) > 600:
+        flash("Minimum of 1 and Maximum of 600 characters for the body.")
+        return redirect(url_for("create_story"))
+    if len(title) < 1 or len(title) > 40:
+        flash("Minimum of 1 and Maximum of 40 characters for the title.")
+        return redirect(url_for("create_story"))
+    db.add_story(title)
     new_story_id = db.get_all_stories()[-1][0]
-    db.add_contribution(session["id"],new_story_id,request.form.get("body"))
+    db.add_contribution(session["id"],new_story_id, body)
     return redirect(url_for("view_story", story_id = new_story_id))
 
 @app.route("/search", methods = ["GET"])
