@@ -1,43 +1,55 @@
-# Storytelling-Softdev
+# Pajama Stories
 
 ## Requirements
-* Python3 <br>
-* Virtual Environment
+* Python 3 <br>
 
-Go ahead and get Flask
-```
-$pip install flask
-$pip install wheel
-```
-Get yourself passlib too
-```
-$pip install passlib
-```
-## How to Run
+## Virtual Environment
+To install a virtual environment in your computer, first make sure that you have Python 3 installed. If you do not have it installed, [go here to learn how to install Python 3](https://realpython.com/installing-python/).
 
-### Activate your virtual environment 
-1. Go to the directory which contains the folder containing your virual environment
-2. replace **placeholder** with the name of the folder containing your virual environment
+Now install your virtual environment
+```
+$ python3 -m venv <virutal_environment_name>
+```
+Go to the directory which contains the folder containing your virual environment and activate your virtual environment
 
-For Linux:
+**For Linux:**
 ```
-$source placeholder/bin/activate
+$ source placeholder/bin/activate
 ```
-For Windows:
+**For Windows:**
 ```
 > placeholder/script/activate
 ```
-### Run the program
 
-From where you save app.py
+## Installing Flask
+Make sure that your virtual environment is installed. Then install Flask
 ```
-$python app.py
+$ pip install flask
+$ pip install wheel
+```
+For our website, we use passlib, so install it by doing this
+```
+$ pip install passlib
+```
+## Cloning Our Repository
+To get our website, clone it.
+```
+$ git clone https://github.com/JasonLin43212/Storytelling-Softdev.git
+```
+And then go into the repository
+```
+$ cd Storytelling-Softdev/
+```
+## Run the program
+Once you are inside of our repository, you can run our website
+```
+$ python app.py
 ```
 Go to localhost:5000 in your favorite web browser to view the website
 
-### When you are done 
-deactivate your virtual environment
+### Stopping the website
+When you are done viewing the website, close the server using `Ctrl-C` and deactivate your virtual environment
 ```
-$deactivate
+$ deactivate
 ```
 
