@@ -1,8 +1,8 @@
 # Storytelling-Softdev
 
 ## Requirements
-* **Python3 <br>
-* Virtual Environment**
+* Python3 <br>
+* Virtual Environment
 
 Go ahead and get Flask
 ```
