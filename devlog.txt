@@ -162,3 +162,11 @@ Max/Min characters when making contributions
 Disallowing stories w/ no titles 
 
 ==============================================================
+
+jabirC -- 2018-10-22 23:13
+-------------------------------------------------------------
+Added a search bar in homepage
+Added a search_stories util function
+Created a search.html page which displays search results
+
+==============================================================
