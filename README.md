@@ -10,15 +10,15 @@ Now install your virtual environment
 ```
 $ python3 -m venv <virutal_environment_name>
 ```
-Go to the directory which contains the folder containing your virual environment and activate your virtual environment
+Go to the directory which contains the folder containing your virtual environment and activate it
 
 **For Linux:**
 ```
-$ source placeholder/bin/activate
+$ source <virtual_environment_name>/bin/activate
 ```
 **For Windows:**
 ```
-> placeholder/script/activate
+> <virtual_environment_name>/script/activate
 ```
 
 ## Installing Flask
