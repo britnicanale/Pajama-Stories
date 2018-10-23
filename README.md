@@ -22,7 +22,7 @@ $ source <virtual_environment_name>/bin/activate
 ```
 
 ## Installing Flask
-Make sure that your virtual environment is installed. Then install Flask
+After activating your virtual environment, install Flask
 ```
 $ pip install flask
 $ pip install wheel
