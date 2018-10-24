@@ -157,6 +157,10 @@ def creating_story():
 
 @app.route("/search", methods = ["GET"])
 def search_results():
+    '''This takes in the search query from the search bar and attempts to find
+    any stories that have a title that include everything that the user searched
+    for. If there are no matching stories, it will flash a message that no stories
+    were found. Else, it will list out all of the matching stories with links.'''
     if not is_logged_in():
         return redirect(url_for("home"))
     query_input = request.args.get("query")

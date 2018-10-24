@@ -184,3 +184,9 @@ Changed spacing
 Discovered that we still can't prevent empty additions.
 
 ==============================================================
+
+jasonL -- 2018-10-24 04:46
+-------------------------------------------------------------
+Added the requirements.txt for faster installing of dependencies. 
+
+==============================================================

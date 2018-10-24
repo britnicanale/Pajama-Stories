@@ -29,17 +29,6 @@ $ source <virtual_environment_name>/bin/activate
 ```
 > <virtual_environment_name>/script/activate
 ```
-
-## Installing Flask
-After activating your virtual environment, install Flask
-```
-$ pip install flask
-$ pip install wheel
-```
-For our website, we use passlib, so install it by doing this
-```
-$ pip install passlib
-```
 ## Cloning Our Repository
 To get our website, clone it.
 ```
@@ -48,6 +37,12 @@ $ git clone https://github.com/JasonLin43212/Pajama-Stories.git
 And then go into the repository
 ```
 $ cd Pajama-Stories/
+```
+## Installing Flask
+After activating your virtual environment and changing your directory to inside of
+Pajama-Stories/, install all of the required dependencies
+```
+$ pip install -r requirements.txt
 ```
 ## Run the program
 Once you are inside of our repository, you can run our website
@@ -61,4 +56,3 @@ When you are done viewing the website, close the server using `Ctrl-C` and deact
 ```
 $ deactivate
 ```
-
