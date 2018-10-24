@@ -6,11 +6,12 @@
 
 {% block content %}
     {# Story goes here #}
-    <h3>{{title}}</h3>
+    <h2>{{title}}</h2>
     {% for msg in get_flashed_messages() %}
     {{msg}}
     {% endfor %}
     {% for pair in story_body %}
+      <hr>
         <blockquote>
             {{pair[1]}} {# Body of the addition #}
         </blockquote>
