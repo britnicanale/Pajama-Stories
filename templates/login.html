@@ -16,8 +16,8 @@ Login Page
          <br>
   {% endfor %}
   <form action ="/auth" method="POST" >
-  <h4> Username: <input type= "text" name="username"><br><br>
-    Password: <input type= "password" name="password"><br><br>
+  <h4> Username: <input type= "text" name="username" required><br><br>
+    Password: <input type= "password" name="password" required><br><br>
     <input type="submit" name="logI" value="Login"></h4>
   </form>
   Don't have an account? <a href="/register">Click here to register!</a>

@@ -16,9 +16,9 @@ Registration
        <br>
 {% endfor %}
 <form action ="/registerAuth" method="POST" >
-    <h3>Username: <input type= "text" name="username" placeholder="At least 4 characters"> <br><br>
-    Password: <input type= "password" name="password"><br><br>
-    Enter Password Again: <input type= "password" name="password2"><br><br>
+    <h3>Username: <input type= "text" name="username" placeholder="At least 4 characters" required> <br><br>
+    Password: <input type= "password" name="password" required><br><br>
+    Enter Password Again: <input type= "password" name="password2" required><br><br>
     <input type="submit" name="signup" value="Sign Up"></h3>
 </form>
 <form action ="/login">

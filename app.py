@@ -30,8 +30,8 @@ def home():
         contributed_data = db.get_user_contribution(session["id"]);
         list_contr_story_id = [x[0] for x in contributed_data] # x[0] is the story id
         allStories = db.get_all_stories() # List of all the stories (id)
-        contr_title_list = [(db.get_title(str(story_id)),story_id) for story_id in list_contr_story_id] # List of all contributed-to story titles
-        uncontr_title_list = [(db.get_title(str(story_id[0])),story_id[0]) for story_id in allStories if story_id[0] not in list_contr_story_id] # List of all uncontributed-to story titles
+        contr_title_list = [(db.get_title(str(story_id)).replace("&#34;",'"'),story_id) for story_id in list_contr_story_id] # List of all contributed-to story titles
+        uncontr_title_list = [(db.get_title(str(story_id[0])).replace("&#34;",'"'),story_id[0]) for story_id in allStories if story_id[0] not in list_contr_story_id] # List of all uncontributed-to story titles
         return render_template("homepage.html", titles = contr_title_list, non_titles = uncontr_title_list, user=db.get_username(session["id"]))
     else:
         return redirect(url_for("login"))
@@ -108,9 +108,9 @@ def view_story(story_id):
     #If story is not in the list of all stories
     if story_id not in [i[0] for i in db.get_all_stories()]:
         return render_template("story_unfound.html")
-    story_title = db.get_title(story_id)
+    story_title = db.get_title(story_id).replace("&#34;",'"')
     additions = db.get_story_body(story_id) #List of all user additions to specific story
-    contribution_list = [(db.get_username(contr_tuple[0]),contr_tuple[1]) for contr_tuple in additions]
+    contribution_list = [(db.get_username(contr_tuple[0]),contr_tuple[1].replace("&#34;",'"')) for contr_tuple in additions]
     users = [user[0] for user in additions] #List of all users who made the additions
     if session["id"] in users:
         return render_template("story_contributed.html", story_id = story_id, story_body = contribution_list, title=story_title, user=db.get_username(session["id"]))
@@ -128,7 +128,8 @@ def add_contribution(story_id):
         flash("Minimum of 1 and Maximum of 600 characters for the body.")
         return redirect(url_for("view_story", story_id = story_id))
 
-    db.add_contribution(session["id"], story_id, request.form.get("addition")) #Adds into specific story table: (usr_id, story_id, body of text)
+    addition = addition.replace('"',"&#34;")
+    db.add_contribution(session["id"], story_id, addition) #Adds into specific story table: (usr_id, story_id, body of text)
     flash("Successfully added to the story!")
     return redirect(url_for("view_story", story_id = story_id))
 
@@ -163,6 +164,8 @@ def creating_story():
         return redirect(url_for("create_story"))
 
     #If it passes the check, then add the story and redirect to view that story
+    body = body.replace('"',"&#34;")
+    title = title.replace('"',"&#34;")
     db.add_story(title)
     new_story_id = db.get_all_stories()[-1][0]
     db.add_contribution(session["id"],new_story_id, body)
