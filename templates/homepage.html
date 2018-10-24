@@ -5,25 +5,17 @@ Home Page
 {% endblock %}
 
 {% block content %}
-    <div>
-      <br>
-      <div>
-        <form action ="/search" methods = ["GET"]>
-        <input type="text" name="query" placeholder="Search For Stories">
-        <button type="submit"> Search </button>
-        </form>
-      </div>
-      <div>
-        <h2>You Have Contributed To :</h2>
-        {% for title_tuple in titles %}
-          <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a><br>
-        {% endfor %}
-      </div>
-      <div>
-        <h2>New Stories or <a href="/create">create a new one.</a></h2>
-        {% for non_title_tuple in non_titles %}
-          <a href="/story/{{non_title_tuple[1]}}">{{non_title_tuple[0]}}</a><br>
-        {% endfor %}
-      </div>
-    </div>
+    <br>
+    <form action ="/search" methods = ["GET"]>
+      <input type="text" name="query" placeholder="Search For Stories">
+      <button type="submit"> Search </button>
+    </form>
+    <h2>You Have Contributed To :</h2>
+    {% for title_tuple in titles %}
+      <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a><br>
+    {% endfor %}
+    <h2>You can add on to or <a href="/create">create a new story</a>:</h2>
+    {% for non_title_tuple in non_titles %}
+        <a href="/story/{{non_title_tuple[1]}}">{{non_title_tuple[0]}}</a><br>
+    {% endfor %}
 {% endblock %}

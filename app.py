@@ -108,18 +108,25 @@ def view_story(story_id):
     #If story is not in the list of all stories
     if story_id not in [i[0] for i in db.get_all_stories()]:
         return render_template("story_unfound.html")
+    story_title = db.get_title(story_id)
     additions = db.get_story_body(story_id) #List of all user additions to specific story
     contribution_list = [(db.get_username(contr_tuple[0]),contr_tuple[1]) for contr_tuple in additions]
     users = [user[0] for user in additions] #List of all users who made the additions
     if session["id"] in users:
-        return render_template("story_contributed.html", story_id = story_id, story_body = contribution_list, user=db.get_username(session["id"]))
-    return render_template("story_uncontributed.html", story_id = story_id, story_body = contribution_list, user=db.get_username(session["id"]))
+        return render_template("story_contributed.html", story_id = story_id, story_body = contribution_list, title=story_title, user=db.get_username(session["id"]))
+    return render_template("story_uncontributed.html", story_id = story_id, story_body = contribution_list, title=story_title, user=db.get_username(session["id"]))
 
 @app.route("/story/<int:story_id>/add", methods = ["POST"])
 def add_contribution(story_id):
     '''Intermediate function to add the story contribution to the big database. Once added, redirect the user to original story'''
     if not is_logged_in():
         return redirect(url_for("home"))
+    addition = request.form.get("addition")
+
+    #Checks for length of input
+    if len(addition.split()) < 1 or len(addition.split()) > 600:
+        flash("Minimum of 1 and Maximum of 600 characters for the body.")
+        return redirect(url_for("view_story", story_id = story_id))
 
     db.add_contribution(session["id"], story_id, request.form.get("addition")) #Adds into specific story table: (usr_id, story_id, body of text)
     flash("Successfully added to the story!")
@@ -142,14 +149,20 @@ def creating_story():
     create the story and redirect the user to the page for viewing the story.'''
     if not is_logged_in():
         return redirect(url_for("home"))
+
+    #Get the body and title from the form
     body = request.form.get("body")
     title = request.form.get("title")
-    if len(body) < 1 or len(body) > 600:
+
+    #Checks that their title and body are of the proper length
+    if len(body.split()) < 1 or len(body.split()) > 600:
         flash("Minimum of 1 and Maximum of 600 characters for the body.")
         return redirect(url_for("create_story"))
-    if len(title) < 1 or len(title) > 40:
+    if len(title.split()) < 1 or len(title.split()) > 40:
         flash("Minimum of 1 and Maximum of 40 characters for the title.")
         return redirect(url_for("create_story"))
+
+    #If it passes the check, then add the story and redirect to view that story
     db.add_story(title)
     new_story_id = db.get_all_stories()[-1][0]
     db.add_contribution(session["id"],new_story_id, body)
@@ -163,11 +176,15 @@ def search_results():
     were found. Else, it will list out all of the matching stories with links.'''
     if not is_logged_in():
         return redirect(url_for("home"))
+
+    #Takes in what the user inputted as the search query
     query_input = request.args.get("query")
-    query_results = db.search_stories(query_input)
+    query_results = db.search_stories(query_input) #Gets list of stories that contain the query
     list_story = []
     for id in query_results:
         list_story.append((db.get_title(id), id))
+
+    #Tells the user if there are no stories that match their query
     if len(query_results) == 0: flash("No Stories Found")
     return render_template("search.html", titles = list_story , user=db.get_username(session["id"]))
 

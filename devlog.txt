@@ -192,3 +192,10 @@ jasonL -- 2018-10-24 04:46
 Added the requirements.txt for faster installing of dependencies.
 
 ==============================================================
+
+jasonL -- 2018-10-24 06:26
+-------------------------------------------------------------
+Added titles for all pages and made it so that user cannot input
+whitespace into the fields.
+
+==============================================================
