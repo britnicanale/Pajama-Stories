@@ -3,10 +3,10 @@
 ## Contributors
 Team Name: PJCubed
 ### Roster
-* Jiayang Chen
-* Jabir Chowdhury
-* Peter Cwalina
-* Jason Lin
+* [Jiayang Chen](https://github.com/jiayang)
+* [Jabir Chowdhury](https://github.com/JabirC)
+* [Peter Cwalina](https://github.com/PeterCwalina)
+* [Jason Lin](https://github.com/JasonLin43212)
 
 ## Requirements
 * Python 3 <br>
