@@ -7,8 +7,8 @@ def add_user(username,password_hash):
     '''adds users to use table'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "INSERT INTO users (username,password_hash)VALUES(\"{0}\",\"{1}\");".format(username,password_hash)
-    c.execute(command)
+    command = "INSERT INTO users (username,password_hash)VALUES(?,?);"
+    c.execute(command,(username,password_hash))
     db.commit()
     db.close()
 
@@ -17,8 +17,8 @@ def add_story(title):
     '''adds a story to stories table'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "INSERT INTO stories (title)VALUES(\"{0}\");".format(title)
-    c.execute(command)
+    command = "INSERT INTO stories (title)VALUES(?);"
+    c.execute(command,(title,))
     db.commit()
     db.close()
 #add a contribution to the table
@@ -26,8 +26,8 @@ def add_contribution(user_id,story_id,body):
     '''adds a contribution to the contributions table'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "INSERT INTO contributions (user_id,story_id,body)VALUES({0},{1},\"{2}\");".format(user_id,story_id,body)
-    c.execute(command)
+    command = "INSERT INTO contributions (user_id,story_id,body)VALUES(?,?,?);"
+    c.execute(command,(user_id,story_id,body))
     db.commit()
     db.close()
 #--------------------useful for logins---------------------------
@@ -50,8 +50,8 @@ def get_user_id(username):
     '''gets user id based on username'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "SELECT id FROM users WHERE username = \"{0}\";".format(username)
-    c.execute(command)
+    command = "SELECT id FROM users WHERE username = ?;"
+    c.execute(command,(username,))
     user_id = c.fetchall()
     db.close()
     return user_id[0][0]
@@ -62,8 +62,8 @@ def get_user_contribution(user_id):
     '''gets all of a certain users contributions'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "SELECT story_id FROM contributions WHERE user_id = {0};".format(user_id)
-    c.execute(command)
+    command = "SELECT story_id FROM contributions WHERE user_id = ?;"
+    c.execute(command,(user_id,))
     stories = c.fetchall()
     db.close()
     return stories
@@ -85,8 +85,8 @@ def get_title(id):
     '''retrieves title based on id given'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "SELECT title FROM stories WHERE id = {0};".format(id)
-    c.execute(command)
+    command = "SELECT title FROM stories WHERE id = ?;"
+    c.execute(command,(id,))
     title = c.fetchall()
     db.close()
     return title[0][0]
@@ -96,8 +96,8 @@ def get_story_body(story_id):
     '''retrives all contributions for a particular story'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "SELECT user_id,body FROM contributions WHERE story_id = {0};".format(story_id)
-    c.execute(command)
+    command = "SELECT user_id,body FROM contributions WHERE story_id = ?;"
+    c.execute(command,(story_id,))
     storyBody = c.fetchall()
     db.close()
     return storyBody
@@ -107,8 +107,8 @@ def get_username(id):
     '''get username based on id'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "SELECT username FROM users WHERE id = {0};".format(id)
-    c.execute(command)
+    command = "SELECT username FROM users WHERE id = ?;"
+    c.execute(command,(id,))
     name = c.fetchall()
     db.close()
     return name[0][0]
@@ -126,4 +126,3 @@ def search_stories(user_query):
     matched_id = [x for x in matched_id if matched_id.count(x) == len(searching_for)]
     matched_id = list(set(matched_id))
     return matched_id
-

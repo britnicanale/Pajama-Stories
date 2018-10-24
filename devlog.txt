@@ -206,3 +206,10 @@ Fixed the bug where if the user enters double quotes, he gets errors.
 Also seeded the database with some data.
 
 ==============================================================
+
+jiayangC -- 2018-10-24 12:38
+-------------------------------------------------------------
+Used sqlite built in replace instead of .format
+Used flask built in escape() instead of .replace for html escape sequences
+
+==============================================================
