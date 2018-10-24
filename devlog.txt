@@ -5,9 +5,9 @@ Peter Cwalina
 Jason Lin
 pd 7
 ---------------------
+Three-Dimensional Pajama Stories
 
-Your team has been contracted to create a collaborative storytelling game/website.
-
+A collaborative storytelling website that has the following features:
      -Users will have to register to use the site.
      -Logged-in users can either start a new story or add to an existing story.
      -When adding to a story,
@@ -17,6 +17,8 @@ Your team has been contracted to create a collaborative storytelling game/websit
      -When creating a new story,
            -Users get to start with any amount of text and give the story a title.
            -Logged in users will be able to read any story they have contributed to on their homepage (the landing page after login).
+     -Logged-in users can also search for the title of a particular story.
+     -Any non-logged-in user who attempts to go to any of the pages reserved for a logged in user will be redirected to the login page.
 
 
  ______   ______   __   __   __       ______   _______
@@ -187,6 +189,6 @@ Discovered that we still can't prevent empty additions.
 
 jasonL -- 2018-10-24 04:46
 -------------------------------------------------------------
-Added the requirements.txt for faster installing of dependencies. 
+Added the requirements.txt for faster installing of dependencies.
 
 ==============================================================
