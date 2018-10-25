@@ -6,7 +6,7 @@ Search
 
 {% block content %}
 <div>
-  <h2>Search Results :</h2>
+  <h2>Search Results For "{{query}}":</h2>
   {% set msgs = get_flashed_messages() %}
   {% for each in msgs %}
          {{each}}
