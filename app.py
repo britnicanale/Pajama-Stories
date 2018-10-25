@@ -6,7 +6,7 @@
 import os
 import sqlite3
 
-from flask import Flask, render_template, request, session, url_for, redirect, flash, escape
+from flask import Flask, render_template, request, session, url_for, redirect, flash
 from passlib.hash import md5_crypt
 
 from util import dbCommands as db
@@ -128,7 +128,6 @@ def add_contribution(story_id):
         flash("Minimum of 1 and Maximum of 600 characters for the body.")
         return redirect(url_for("view_story", story_id = story_id))
 
-    escape(addition) # Flask method to replace certain chars to html safe sequences
     db.add_contribution(session["id"], story_id, addition) #Adds into specific story table: (usr_id, story_id, body of text)
     flash("Successfully added to the story!")
     return redirect(url_for("view_story", story_id = story_id))
@@ -164,8 +163,6 @@ def creating_story():
         return redirect(url_for("create_story"))
 
     #If it passes the check, then add the story and redirect to view that story
-    escape(body) # Flask method to replace certain chars to html safe sequences
-    escape(title)
     db.add_story(title)
     new_story_id = db.get_all_stories()[-1][0]
     db.add_contribution(session["id"],new_story_id, body)

@@ -7,15 +7,17 @@
     </head>
 
     <body>
+      <center>
       {% block header %}
         <h1>Three-Dimensional Pajama Stories</h1>
         Logged in as {{user}}.<br><br>
         <form action ="/">
-        <input type="submit" value="Home Page"> <br><br>
-        </form>
+        <input type="submit" value="Home Page">
+      </form><br>
         <form action ="/logout">
         <input type="submit" value="Log Out">
-        </form>
+      </form>
+
       {% endblock %}
       {% block content %}
 
@@ -24,6 +26,7 @@
         <br><br><br>
         &copy Copyright 2018 Team PJCubed
       {% endblock %}
+    </center>
     </body>
 
 </html>
