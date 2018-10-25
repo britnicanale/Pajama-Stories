@@ -114,7 +114,9 @@ def get_username(id):
     return name[0][0]
 
 def search_stories(user_query):
-    '''searches for stories based on a query'''
+    '''searches for stories based on a query,
+       returns results based on priority of
+       greatest to least query words in title'''
     searching_for = user_query.lower().split()
     story_ids = get_all_stories()
     story_ids_list = [ids[0] for ids in story_ids]
@@ -123,6 +125,12 @@ def search_stories(user_query):
         for word in searching_for:
             if word in get_title(id).lower():
                 matched_id.append(id)
-    matched_id = [x for x in matched_id if matched_id.count(x) == len(searching_for)]
-    matched_id = list(set(matched_id))
-    return matched_id
+    query_length = len(searching_for)
+    returned_ids = []
+    while(query_length != 0):
+          temp_ids = [x for x in matched_id if matched_id.count(x) == query_length]
+          temp_ids = list(set(temp_ids))
+          for id in temp_ids:
+              returned_ids.append(id)
+          query_length -= 1
+    return returned_ids
