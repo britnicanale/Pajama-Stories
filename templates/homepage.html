@@ -21,12 +21,12 @@ Home Page
       </th>
       <th><h2>You Can Add On To Or <a href="/create">Create A New Story</a></h2> </th>
       <tr>
-        <td>
+        <td valign="top">
           {% for title_tuple in titles %}
             <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a><br>
           {% endfor %}
         </td>
-        <td>
+        <td valign="top">
           {% for non_title_tuple in non_titles %}
               <a href="/story/{{non_title_tuple[1]}}">{{non_title_tuple[0]}}</a><br>
           {% endfor %}
