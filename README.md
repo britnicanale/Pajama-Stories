@@ -19,7 +19,7 @@ The passlib library contains many hashing algorithm for encrypting passwords. Ad
 there are functions that verify whether a given input would hash to a certain output.
 Overall the passlib library provides algorithms that increase security for the user.
 
-Our team deems the passlib library necessary because it will give our website
+Our team deems the passlib library necessary because it gives our website
 a secure password system. Not only will it make it more difficult for
 intruders to gain access to other user accounts, but using this library will
 help our team gain more knowledge about security and hashing.
