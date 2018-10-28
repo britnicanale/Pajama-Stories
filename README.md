@@ -12,6 +12,24 @@ Team Name: PJCubed
 * Python 3 <br>
 * SQLite3
 
+## Library Used
+For our project, we used the [passlib](https://passlib.readthedocs.io/en/stable/) library.
+
+The passlib library contains many hashing algorithm for hashing passwords. Additionally,
+there are functions that verify whether a given input would hash to a certain output.
+These hashing algorithms provide security to the user.
+
+Our team deems the passlib library necessary because it will give our website
+a secure password system. Not only will it make it more difficult for
+intruders to gain access to other user accounts, but using this library will
+help our team gain more knowledge about security and hashing.
+
+In our project, we imported the md5_crypt hashing algorithm and verifying function.
+When the user creates an account, we used 'md5_crypt.encrypt' to hash the password
+and put the hash for that user in the database. When the user logs in,
+we used the 'md5_crypt.verify' to check whether the password that the user inputs
+has the same hash as what is in the database.
+
 ## Virtual Environment
 To install a virtual environment in your computer, first make sure that you have Python 3 and SQLite3 installed. If you do not have it installed, [go here to learn how to install Python 3](https://realpython.com/installing-python/) or [here to install SQLite3](https://www.sqlite.org/download.html).
 
@@ -40,7 +58,7 @@ $ cd Pajama-Stories/
 ```
 ## Installing Flask
 After activating your virtual environment and changing your directory to inside of
-Pajama-Stories/, install all of the required dependencies
+'Pajama-Stories/', install all of the required dependencies
 ```
 $ pip install -r requirements.txt
 ```

@@ -11,7 +11,7 @@ Create Story
     <br><br>
     {% endfor %}
     <form action ="/creating" method="POST">
-        Title: <input type= "text" name="title" minlength="1"><br>
+        Title: <input type= "text" name="title" minlength="1" maxlength="60"><br>
         <br>
         First Contribution: <br><textarea name="body" rows="6" cols="70" minlength="4" maxlength="600"></textarea> <br>
         <button type="submit"> Create Story!</button>

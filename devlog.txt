@@ -237,3 +237,9 @@ jasonL -- 2018-10-26 11:53
 Aligned all of the story titles to the top of the tables in
 the homepage.
 ==============================================================
+
+jasonL -- 2018-10-28 17:46
+--------------------------------------------------------------
+Updated README with the passlib library description.
+Changed max character for title to be 60.
+==============================================================
