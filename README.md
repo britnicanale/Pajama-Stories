@@ -1,5 +1,6 @@
 # Pajama Stories
-
+A collaborative story telling website that would make for great stories that you read while in your pajamas.
+Users can create a new story or add on to existing stories to create a story only based off of what the previous person wrote. After contributing, the user can see the entire story.
 ## Contributors
 Team Name: PJCubed
 ### Roster
