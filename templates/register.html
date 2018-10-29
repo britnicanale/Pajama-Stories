@@ -5,23 +5,24 @@ Registration
 {% endblock %}
 
 {% block header %}
-<h1>Three-Dimensional Pajama Stories</h1>
-<h2>Registration Form</h2>
+  <h1>Three-Dimensional Pajama Stories</h1>
+  <h2>Registration Form</h2>
 {% endblock %}
 
 {% block content %}
-{% set msgs = get_flashed_messages() %}
-{% for each in msgs %}
-       {{each}}
-       <br>
-{% endfor %}
-<form action ="/registerAuth" method="POST" >
-    <h3>Username: <input type= "text" name="username" placeholder="At least 4 characters" required> <br><br>
-    Password: <input type= "password" name="password" required><br><br>
-    Enter Password Again: <input type= "password" name="password2" required><br><br>
-    <input type="submit" name="signup" value="Sign Up"></h3>
-</form>
-<form action ="/login">
-<input type="submit" value="Back to Login">
-</form>
+  {% set msgs = get_flashed_messages() %}
+  {% for each in msgs %}
+      {{each}}<br>
+  {% endfor %}
+  <form action ="/registerAuth" method="POST" >
+      <h3>
+        Username: <input type= "text" name="username" placeholder="At least 4 characters" required><br><br>
+        Password: <input type= "password" name="password" required><br><br>
+        Enter Password Again: <input type= "password" name="password2" required><br><br>
+        <input type="submit" name="signup" value="Sign Up">
+    </h3>
+  </form>
+  <form action ="/login">
+    <input type="submit" value="Back to Login">
+  </form>
 {% endblock %}

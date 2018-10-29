@@ -5,7 +5,7 @@ c = db.cursor()
 #create users
 command = "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT UNIQUE,password_hash TEXT)"
 c.execute(command)
-#creat contributions
+#create contributions
 command = "CREATE TABLE contributions(id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER,story_id INTEGER,body TEXT)"
 c.execute(command)
 #create stories

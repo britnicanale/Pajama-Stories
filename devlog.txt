@@ -127,7 +127,6 @@ jiayangC -- 2018-10-19 13:15
 Added a page to view contributed stories
 Added a page to view uncontributed stories
 Added a page to view unfound story
-
 ==============================================================
 
 jiayangC -- 2018-10-20 18:08
@@ -137,21 +136,18 @@ Reformatted functions & names (snake case)
 Used list comprehensions to clean up messy for-loops
 Added forced login
 Fixed users not being able to view entire story after contributing
-
 ==============================================================
 
 jabirC -- 2018-10-20 22:59
 -------------------------------------------------------------
 Added register button in login.html
 created basic signup page
-
 ==============================================================
 
 jabirC -- 2018-10-20 23:50
 -------------------------------------------------------------
 Added flash messages for various signup errors
 added password hashing
-
 ==============================================================
 
 jasonL -- 2018-10-22 05:40
@@ -161,7 +157,6 @@ Display the name of users who contributed to story.
 Made homepage button.
 Made links to go to each story.
 Created a way to clear database and start from scratch.
-
 ==============================================================
 
 jiayangC -- 2018-10-22 13:14
@@ -169,13 +164,11 @@ jiayangC -- 2018-10-22 13:14
 Force login for new pages - Limited user access to unallowed pages
 Max/Min characters when making contributions
 Disallowing stories w/ no titles
-
 ==============================================================
 
 cwalinaP -- 2018-10-22 23:00
 -------------------------------------------------------------
 Updated README.
-
 ==============================================================
 
 jabirC -- 2018-10-22 23:13
@@ -183,7 +176,6 @@ jabirC -- 2018-10-22 23:13
 Added a search bar in homepage
 Added a search_stories util function
 Created a search.html page which displays search results
-
 ==============================================================
 
 jasonL -- 2018-10-23 05:32
@@ -191,41 +183,35 @@ jasonL -- 2018-10-23 05:32
 Added how to install virtual environment into README.md
 Changed spacing
 Discovered that we still can't prevent empty additions.
-
 ==============================================================
 
 jasonL -- 2018-10-24 04:46
 -------------------------------------------------------------
 Added the requirements.txt for faster installing of dependencies.
-
 ==============================================================
 
 jasonL -- 2018-10-24 06:26
 -------------------------------------------------------------
 Added titles for all pages and made it so that user cannot input
 whitespace into the fields.
-
 ==============================================================
 
 jasonL -- 2018-10-24 10:20
 -------------------------------------------------------------
 Fixed the bug where if the user enters double quotes, he gets errors.
 Also seeded the database with some data.
-
 ==============================================================
 
 jiayangC -- 2018-10-24 12:38
 -------------------------------------------------------------
 Used sqlite built in replace instead of .format
 Used flask built in escape() instead of .replace for html escape sequences
-
 ==============================================================
 
 jasonL -- 2018-10-25 13:06
 -------------------------------------------------------------
 Centered everything. Moved the names of the contributors and
 removed old fix for old bug.
-
 ==============================================================
 
 jabirC -- 2018-10-25 13:21

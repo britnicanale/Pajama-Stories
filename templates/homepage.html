@@ -1,36 +1,39 @@
 {% extends "base.html" %}
 
 {% block title %}
-Home Page
+  Home Page
 {% endblock %}
 
 {% block content %}
-    <br>
-    <form action ="/search" methods = ["GET"]>
-      <input type="text" name="query" placeholder="Search For Stories">
-      <button type="submit"> Search </button>
-    </form>
-    <br><br>
-    <table >
-      <th>
-        <h2>
+  <br>
+  <form action ="/search" methods = ["GET"]>
+    <input type="text" name="query" placeholder="Search For Stories">
+    <button type="submit"> Search </button>
+  </form><br><br>
+  <table >
+    <th>
+      <h2>
         You Have Contributed To:
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </h2>
-      </th>
-      <th><h2>You Can Add On To Or <a href="/create">Create A New Story</a></h2> </th>
-      <tr>
-        <td valign="top">
-          {% for title_tuple in titles %}
-            <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a><br>
-          {% endfor %}
-        </td>
-        <td valign="top">
-          {% for non_title_tuple in non_titles %}
-              <a href="/story/{{non_title_tuple[1]}}">{{non_title_tuple[0]}}</a><br>
-          {% endfor %}
-        </td>
-  </tr>
+      </h2>
+    </th>
+    <th>
+      <h2>
+        You Can Add On To Or <a href="/create">Create A New Story</a>
+      </h2>
+   </th>
+   <tr>
+    <td valign="top">
+      {% for title_tuple in titles %}
+        <a href="/story/{{title_tuple[1]}}">{{title_tuple[0]}}</a><br>
+      {% endfor %}
+    </td>
+    <td valign="top">
+      {% for non_title_tuple in non_titles %}
+          <a href="/story/{{non_title_tuple[1]}}">{{non_title_tuple[0]}}</a><br>
+      {% endfor %}
+    </td>
+    </tr>
   </table>
 {% endblock %}

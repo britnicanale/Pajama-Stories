@@ -1,25 +1,24 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{title}}
+  {{title}}
 {% endblock %}
 
 {% block content %}
     {# Story goes here #}
     <h2>{{title}}</h2>
     {% for msg in get_flashed_messages() %}
-    {{msg}}<br><br>
+      {{msg}}<br><br>
     {% endfor %}
     <b>Previous Contribution:</b>
-        <blockquote>
-            {{story_body[-1][1]}}
-        </blockquote>
+    <blockquote>
+        {{story_body[-1][1]}}
+    </blockquote>
     <br>
 
     <form action ="/story/{{story_id}}/add" method="POST">
-        Add to the story: <br>
-        <textarea name="addition" rows="6" cols="70" maxlength="1000"></textarea> <br>
-        <button type="submit"> Add </button>
-        <br>
+        Add to the story:<br>
+        <textarea name="addition" rows="6" cols="70" maxlength="1000"></textarea><br>
+        <button type="submit"> Add </button><br>
     </form>
 {% endblock %}

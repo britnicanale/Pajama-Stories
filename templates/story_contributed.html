@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{title}}
+  {{title}}
 {% endblock %}
 
 {% block content %}
     {# Story goes here #}
     <h2>{{title}}</h2>
     {% for msg in get_flashed_messages() %}
-    {{msg}}
+      {{msg}}
     {% endfor %}
     {% for pair in story_body %}
       <hr>
-        <blockquote>
-            {{pair[1]}} {# Body of the addition #}
-        </blockquote>
-        <div align="right">- {{pair[0]}} {# Name of the add-er #}</div>
+      <blockquote>
+          {{pair[1]}} {# Body of the addition #}
+      </blockquote>
+      <div align="right">- {{pair[0]}} {# Name of the add-er #}</div>
     {% endfor %}
     <br>
 {% endblock %}

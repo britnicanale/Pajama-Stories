@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 
 {% block title %}
-Login Page
+  Login Page
 {% endblock %}
 
 {% block header %}
-<h1>Three-Dimensional Pajama Stories</h1>
-<h2>Login</h2>
+  <h1>Three-Dimensional Pajama Stories</h1>
+  <h2>Login</h2>
 {% endblock %}
 
 {% block content %}
   {% set msgs = get_flashed_messages() %}
   {% for each in msgs %}
-         {{each}}
-         <br>
+    {{each}}<br>
   {% endfor %}
   <form action ="/auth" method="POST" >
-  <h4> Username: <input type= "text" name="username" required><br><br>
-    Password: <input type= "password" name="password" required><br><br>
-    <input type="submit" name="logI" value="Login"></h4>
+    <h4>
+      Username: <input type= "text" name="username" required><br><br>
+      Password: <input type= "password" name="password" required><br><br>
+      <input type="submit" name="logI" value="Login">
+    </h4>
   </form>
   Don't have an account? <a href="/register">Click here to register!</a>
 {% endblock %}

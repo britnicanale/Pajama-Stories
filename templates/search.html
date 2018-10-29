@@ -1,19 +1,16 @@
 {% extends "base.html" %}
 
 {% block title %}
-Search
+  Search
 {% endblock %}
 
 {% block content %}
-<div>
   <h2>Search Results For "{{query}}":</h2>
   {% set msgs = get_flashed_messages() %}
   {% for each in msgs %}
-         {{each}}
-         <br>
+    {{each}}<br>
   {% endfor %}
   {% for tuple in titles %}
     <a href="/story/{{tuple[1]}}">{{tuple[0]}}</a><br>
   {% endfor %}
-</div>
 {% endblock %}
