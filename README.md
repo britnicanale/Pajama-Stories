@@ -32,7 +32,7 @@ we used the `md5_crypt.verify` to check whether the password that the user input
 has the same hash as what is in the database.
 
 ## Virtual Environment
-To install a virtual environment in your computer, first make sure that you have Python 3 and SQLite3 installed. If you do not have it installed, [go here to learn how to install Python 3](https://realpython.com/installing-python/) or [here to install SQLite3](https://www.sqlite.org/download.html).
+Before installing a virtual environment in your computer, make sure that you have Python 3 and SQLite3 installed. If you do not have it installed, [go here to learn how to install Python 3](https://realpython.com/installing-python/) or [here to install SQLite3](https://www.sqlite.org/download.html).
 
 Now install your virtual environment
 ```
