@@ -68,7 +68,7 @@ Once you are inside of our repository, you can run our website
 ```
 $ python app.py
 ```
-Go to localhost:5000 in your favorite web browser to view the website
+Go to `localhost:5000` in your favorite web browser to view the website
 
 ### Stopping the website
 When you are done viewing the website, close the server using `Ctrl-C` and deactivate your virtual environment
