@@ -188,7 +188,4 @@ def search_results():
     if len(query_results) == 0: flash("No Stories Found")
     return render_template("search.html", titles = list_story , user=db.get_username(session["id"]), query=query_input)
 
-
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
+app.run()
