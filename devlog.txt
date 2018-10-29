@@ -86,6 +86,11 @@ Combined the work of everyone so far and updated each of their
 branches to be the same as master. Also, added makefile.
 ==============================================================
 
+jabirC -- 2018-10-18 10:05
+-------------------------------------------------------------
+Added Logout button in base.html and simplified code in app.py
+==============================================================
+
 jasonL -- 2018-10-18 10:37
 --------------------------------------------------------------
 Moved Peter's makeData.py to the root directory and planned on
@@ -96,11 +101,6 @@ jasonL -- 2018-10-18 13:15
 --------------------------------------------------------------
 Peter and I worked on figuring out how to use the dbCommands.py from the
 util folder correctly from app.py which is in the root directory.
-==============================================================
-
-jabirC -- 2018-10-18 10:05
--------------------------------------------------------------
-Added Logout button in base.html and simplified code in app.py
 ==============================================================
 
 jasonL -- 2018-10-19 04:42
@@ -116,17 +116,17 @@ Combined everyone's changes from previous day and added a gitignore
 to ignore the pyc files.
 ==============================================================
 
-jasonL -- 2018-10-19 13:16
--------------------------------------------------------------
-Added links to jinja on homepage and changed title lists to tuples
-and include story ids.
-==============================================================
-
 jiayangC -- 2018-10-19 13:15
 -------------------------------------------------------------
 Added a page to view contributed stories
 Added a page to view uncontributed stories
 Added a page to view unfound story
+==============================================================
+
+jasonL -- 2018-10-19 13:16
+-------------------------------------------------------------
+Added links to jinja on homepage and changed title lists to tuples
+and include story ids.
 ==============================================================
 
 jiayangC -- 2018-10-20 18:08
