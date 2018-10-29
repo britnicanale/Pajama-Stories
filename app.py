@@ -124,8 +124,8 @@ def add_contribution(story_id):
     addition = request.form.get("addition")
 
     #Checks for length of input
-    if len(addition.split()) < 1 or len(addition) > 600:
-        flash("Minimum of 1 and Maximum of 600 characters for the body.")
+    if len(addition.split()) < 1 or len(addition) > 1000:
+        flash("Minimum of 1 and Maximum of 1000 characters for the body.")
         return redirect(url_for("view_story", story_id = story_id))
 
     db.add_contribution(session["id"], story_id, addition) #Adds into specific story table: (usr_id, story_id, body of text)
@@ -155,8 +155,8 @@ def creating_story():
     title = request.form.get("title")
 
     #Checks that their title and body are of the proper length
-    if len(body.split()) < 1 or len(body) > 600:
-        flash("Minimum of 1 and Maximum of 600 characters for the body.")
+    if len(body.split()) < 1 or len(body) > 1000:
+        flash("Minimum of 1 and Maximum of 1000 characters for the body.")
         return redirect(url_for("create_story"))
     if len(title.split()) < 1 or len(title) > 60:
         flash("Minimum of 1 and Maximum of 60 characters for the title.")
