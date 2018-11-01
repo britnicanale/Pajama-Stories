@@ -3,12 +3,15 @@
     <head>
         {% block head %}
         <title>{% block title %}{% endblock %} | Three-Dimensional Pajama Stories</title>
+
         {% endblock %}
     </head>
 
     <body>
       <center>
       {% block header %}
+      <link rel="stylesheet" href="base.css">
+      <div class="header">
         <h1>Three-Dimensional Pajama Stories</h1>
         Logged in as <b>{{user}}</b>.<br><br>
         <form action ="/">
@@ -17,6 +20,7 @@
         <form action ="/logout">
         <input type="submit" value="Log Out">
       </form>
+    </div>
       {% endblock %}
 
       {% block content %}
